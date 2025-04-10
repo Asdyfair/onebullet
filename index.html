@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>One Bullet - Asdyfair</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    #gameCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #menu, #gameOverScreen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 2;
+    }
+    #menu button, #gameOverScreen button {
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      background: #007bff;
+      color: white;
+    }
+    #levelDisplay {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      z-index: 3;
+      display: none;
+    }
+    #joystick {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      z-index: 3;
+    }
+    .stick {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      top: 20px;
+      left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="gameCanvas"></canvas>
+
+<div id="menu">
+  <h1>One Bullet</h1>
+  <button onclick="startGame(true)">Play</button>
+  <button onclick="togglePause()">Resume</button>
+  <button onclick="location.reload()">Exit</button>
+</div>
+
+<div id="gameOverScreen">
+  <h1>Game Over</h1>
+  <button onclick="retryGame()">Try Again</button>
+</div>
+
+<div id="levelDisplay">Level: 1</div>
+
+<div id="joystick">
+  <div class="stick"></div>
+</div>
+
+<audio id="shootSound" src="shoot.mp3"></audio>
+<audio id="hitSound" src="hit.mp3"></audio>
+<audio id="gameoverSound" src="gameover.mp3"></audio>
+
+<script src="game.js"></script>
+</body>
+</html>
